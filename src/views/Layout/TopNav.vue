@@ -42,6 +42,8 @@ const handleSelect = (key, keyPath) => {
   left: 0;
   z-index: 99;
   width: 100%;
+  // height: 58px;
+  // min-width: 1200px;
   // display: flex;
 
   h1 {
@@ -49,7 +51,8 @@ const handleSelect = (key, keyPath) => {
   }
 
   .flex-grow {
-    flex-grow: 1;
+    // flex-grow: 1;
+    flex: 1;
   }
 }
 .el-menu-demo {

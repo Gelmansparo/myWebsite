@@ -1,6 +1,6 @@
 <template>
-  <div class="boxInfo">
-    <div class="counterLeft">
+  <div class="boxInfo" :class="{ valueFlex: flexBol }">
+    <div class="counterLeft" :class="{ valueFlex: flexBol }">
       <div class="touxiang"></div>
       <h2>OneV's</h2>
       <h2>Den</h2>
@@ -19,21 +19,41 @@
 </template>
 
 <script setup>
+import { ref, onMounted, watch, computed } from "vue";
+const flexBol = ref(true);
+const bodyWidth = ref(window.innerWidth);
+
+watch(
+  bodyWidth,
+  (newVal, oldVal) => {
+    if (newVal > 500) {
+      flexBol.value = true;
+    } else {
+      flexBol.value = false;
+    }
+  },
+  { immediate: true }
+);
 </script>
 
 <style lang="scss" scoped>
 .boxInfo {
-  display: flex;
+  &.valueFlex {
+    display: flex;
+  }
   .counterLeft {
     background-image: url("../../assets/images/bkg2.png");
     background-size: cover;
-    width: 320px;
-    height: 500px;
-    opacity: 0.8;
+    width: 100%;
+    height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    &.valueFlex {
+      width: 320px;
+      margin-right: 30px;
+    }
 
     .touxiang {
       width: 120px;
