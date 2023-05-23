@@ -8,9 +8,12 @@ import BlogDetails from '../views/BlogDetails/index.vue'
 const routes = [
   { path: '/', redirect: '/home' },
   {
-    path: '/home', component: Home, children: [
-      { path: '', component: BlogList },
-      { path: 'blog/:id', component: BlogDetails },
+    path: '/home',
+    component: Home,
+    name: 'Home',
+    children: [
+      { path: '', component: BlogList, name: "BlogList" },
+      { path: 'blog/:id', component: BlogDetails, name: 'Blog' },
     ]
   }
 
@@ -18,7 +21,7 @@ const routes = [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes: routes
+  routes,
 })
 
 export default router

@@ -1,4 +1,5 @@
-import mysql from 'mysql2'
+// import mysql from 'mysql2'
+var mysql = require('mysql2')
 
 const connection = mysql.createPool({
   host: 'rm-cn-zxu387853000mqdo.rwlb.rds.aliyuncs.com',

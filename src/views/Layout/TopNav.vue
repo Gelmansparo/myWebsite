@@ -1,7 +1,6 @@
 <template>
   <div class="top-nav">
     <el-menu
-      :default-active="activeIndex"
       popper-effect="light"
       class="el-menu-demo"
       mode="horizontal"
@@ -28,7 +27,7 @@ import { ref } from "vue";
 // import { useRouter } from "vue-router";
 // const router = useRouter();
 
-const activeIndex = ref("1");
+// const activeIndex = ref("1");
 const handleSelect = (key, keyPath) => {
   // console.log(key, keyPath);
   // router.push(key);

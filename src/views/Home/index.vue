@@ -1,9 +1,9 @@
 <template>
   <div class="boxInfo" :class="{ valueFlex: flexBol }">
-    <div class="counterLeft" :class="{ valueFlex: flexBol }">
+    <div class="counterLeft" v-if="routeName" :class="{ valueFlex: flexBol }">
       <div class="touxiang"></div>
-      <h2>OneV's</h2>
-      <h2>Den</h2>
+      <h2>OneV's<span v-if="!flexBol">Den</span></h2>
+      <h2 v-if="flexBol">Den</h2>
       <p>言念君子，温其如玉</p>
       <hr />
       <p class="jieshao">
@@ -22,14 +22,29 @@
 import { ref, onMounted, watch, computed } from "vue";
 const flexBol = ref(true);
 const bodyWidth = ref(window.innerWidth);
+import { useRoute } from "vue-router";
+const route = useRoute();
+const routeName = ref(true);
 
 watch(
-  bodyWidth,
+  [bodyWidth],
   (newVal, oldVal) => {
     if (newVal > 500) {
       flexBol.value = true;
     } else {
       flexBol.value = false;
+    }
+  },
+  { immediate: true }
+);
+
+watch(
+  () => route.name,
+  () => {
+    if (route.name === "BlogList") {
+      routeName.value = true;
+    } else {
+      routeName.value = false;
     }
   },
   { immediate: true }
@@ -45,14 +60,16 @@ watch(
     background-image: url("../../assets/images/bkg2.png");
     background-size: cover;
     width: 100%;
-    height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 20px;
+    border-radius: 15px;
     &.valueFlex {
       width: 320px;
       margin-right: 30px;
+      // height: 900px;
     }
 
     .touxiang {

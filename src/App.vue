@@ -33,7 +33,7 @@ import TopNav from "./views/Layout/TopNav.vue";
     background: white;
     // opacity: 0.3;
     backdrop-filter: blur(10px);
-    box-shadow: 0 0 20px #a29bfe;
+    // box-shadow: 0 0 20px #a29bfe;
     margin-top: 78px;
   }
 }
