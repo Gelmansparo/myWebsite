@@ -4,7 +4,6 @@ import { ref } from 'vue'
 // import { getBlogListAPI } from '../apis/mysqlAPI.js'
 
 export const blogStore = defineStore('blog', () => {
-  const LocalStorage = ref(null)
   // 定义数据(state)
   const blogList = ref([
     {
@@ -34,20 +33,25 @@ export const blogStore = defineStore('blog', () => {
   ])
 
   // 添加方法
-  const pushList = () => {
-    blogList.value.push({
-      id: 996,
-      title: "亚运会上单之争！当团队型遇到对线型！Bin比369更适合？",
-      body: "相信很多玩家都知道，不管是在LPL春季赛的赛场，还是在MSI季中赛的赛场，除了争夺最后的冠军以外，很多选手也都在用自己的表现去争一手“亚运会首发”的资格！",
-      tags: ["vue2", "vue3", "lol"]
-    })
+  const pushBlog = (obj) => {
+    const pushId = blogList.value[blogList.value.length - 1].id + 1
+    obj.id = pushId
+    blogList.value.push(obj)
   }
   // 删除方法
   const deleteBlog = (id) => {
     blogList.value = blogList.value.filter(x => x.id != id)
   }
+  // 修改方法
+  const changeBlog = (obj) => {
+    const item = blogList.value.find(item => item.id == obj.id)
+    item.title = obj.title
+    item.body = obj.body
+    item.tags = obj.tags
+    item.date = obj.date
+  }
 
 
   // 最后，以对象的方式，共享供组件使用
-  return { blogList, pushList, deleteBlog }
+  return { blogList, pushBlog, deleteBlog, changeBlog }
 }, { persist: true })

@@ -13,7 +13,7 @@ import TopNav from "./views/Layout/TopNav.vue";
 
 <style scoped lang="scss">
 .blogBox {
-  padding: 0 10px;
+  padding: 0 10px 50px;
   h1 {
     color: #333;
   }

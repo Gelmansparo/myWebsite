@@ -38,10 +38,11 @@ watch(
   { immediate: true }
 );
 
+const pathNameArr = ["BlogList", "TagSearch"];
 watch(
   () => route.name,
   () => {
-    if (route.name === "BlogList") {
+    if (pathNameArr.includes(route.name)) {
       routeName.value = true;
     } else {
       routeName.value = false;
@@ -69,7 +70,7 @@ watch(
     &.valueFlex {
       width: 320px;
       margin-right: 30px;
-      // height: 900px;
+      height: 900px;
     }
 
     .touxiang {

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="blogDetails">
     <el-page-header @back="$router.go(-1)">
       <template #content>
         <span class="text-large font-600 mr-3"> {{ blogObj.title }} </span>
@@ -15,14 +15,18 @@
           >
         </div>
         <div class="events">
-          <el-popconfirm title="再次确认编辑文章?" hide-icon>
+          <el-popconfirm
+            @confirm="$router.push(`/changeblog/${route.params.id}`)"
+            title="确认编辑文章"
+            hide-icon
+          >
             <template #reference>
               <el-button type="primary" :icon="Edit" circle />
             </template>
           </el-popconfirm>
           <el-button type="warning" :icon="Star" circle />
           <el-popconfirm
-            title="你确定要删除文章吗?"
+            title="确定要删除文章吗?"
             confirm-button-type="danger"
             hide-icon
             @confirm="deleteBlogId(blogObj.id)"
@@ -33,7 +37,7 @@
           </el-popconfirm>
         </div>
       </div>
-      <div class="mt-4 text-sm font-bold">
+      <div class="mt-4 text-sm font-bold blogBody">
         {{ blogObj.body }}
       </div>
     </el-page-header>
@@ -58,14 +62,24 @@ const deleteBlogId = (id) => {
 </script>
 
 <style lang="scss" scoped>
-.tags-events {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 5px;
-  .tags {
-    .tag {
-      margin-right: 5px;
+.blogDetails {
+  flex: 1;
+  .tags-events {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 5px;
+    .tags {
+      .tag {
+        margin-right: 5px;
+      }
     }
+    .events {
+      position: relative;
+      top: -3px;
+    }
+  }
+  .blogBody {
+    padding: 5px 5%;
   }
 }
 </style>

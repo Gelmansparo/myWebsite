@@ -14,7 +14,7 @@
       <el-menu-item index="/">首页</el-menu-item>
       <el-sub-menu index="/main">
         <template #title>后台管理</template>
-        <el-menu-item index="/main/personal">个人中心</el-menu-item>
+        <el-menu-item index="/create">添加博客</el-menu-item>
         <el-menu-item index="/main/run">后台管理</el-menu-item>
         <el-menu-item index="/main/setup">设置</el-menu-item>
       </el-sub-menu>
