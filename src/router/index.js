@@ -31,4 +31,15 @@ const router = createRouter({
   routes,
 })
 
+// 布置路由守卫(路由跳转之际，页面置顶)
+router.beforeEach((to, from, next) => {
+  // chrome
+  document.body.scrollTop = 0
+  // firefox
+  document.documentElement.scrollTop = 0
+  // safari
+  window.pageYOffset = 0
+  next()
+})
+
 export default router

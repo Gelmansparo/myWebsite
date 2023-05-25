@@ -37,15 +37,13 @@
           </el-popconfirm>
         </div>
       </div>
-      <div class="mt-4 text-sm font-bold blogBody">
-        {{ blogObj.body }}
-      </div>
+      <div ref="innerHTMLBody" class="mt-4 text-sm font-bold blogBody"></div>
     </el-page-header>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { blogStore } from "../../stores/blog.js";
 import { Delete, Edit, Star } from "@element-plus/icons-vue";
@@ -59,6 +57,11 @@ const deleteBlogId = (id) => {
   store.deleteBlog(id);
   router.replace("/");
 };
+
+const innerHTMLBody = ref(null);
+onMounted(() => {
+  innerHTMLBody.value.innerHTML = blogObj.body;
+});
 </script>
 
 <style lang="scss" scoped>

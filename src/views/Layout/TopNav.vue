@@ -8,15 +8,16 @@
       @select="handleSelect"
       router
     >
-      <h1>个人博客</h1>
+      <h1>HL Blog</h1>
 
       <div class="flex-grow" />
       <el-menu-item index="/">首页</el-menu-item>
       <el-sub-menu index="/main">
-        <template #title>后台管理</template>
+        <template #title>博客管理</template>
         <el-menu-item index="/create">添加博客</el-menu-item>
-        <el-menu-item index="/main/run">后台管理</el-menu-item>
-        <el-menu-item index="/main/setup">设置</el-menu-item>
+        <!-- <el-menu-item index="/main/run">后台管理</el-menu-item> -->
+        <el-menu-item index="/github">Go Github</el-menu-item>
+        <el-menu-item index="/gitee">Go Gitee</el-menu-item>
       </el-sub-menu>
     </el-menu>
   </div>
@@ -29,8 +30,14 @@ import { ref } from "vue";
 
 // const activeIndex = ref("1");
 const handleSelect = (key, keyPath) => {
+  // "https://github.com/Gelmansparo/myWebsite"
   // console.log(key, keyPath);
-  // router.push(key);
+  if (key === "/github") {
+    window.location = "https://github.com/Gelmansparo/myWebsite";
+  }
+  if (key === "/gitee") {
+    window.location = "https://gitee.com/yaoyuting1";
+  }
 };
 </script>
 
@@ -47,6 +54,8 @@ const handleSelect = (key, keyPath) => {
 
   h1 {
     line-height: 58px;
+    color: #666;
+    padding-left: 10px;
   }
 
   .flex-grow {

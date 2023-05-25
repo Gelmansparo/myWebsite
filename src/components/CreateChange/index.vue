@@ -16,10 +16,18 @@
             <el-input v-model="atBlogObj.title" />
           </el-form-item>
           <el-form-item label="内容" prop="body">
-            <el-input v-model="atBlogObj.body" type="textarea" />
+            <el-input
+              v-model="atBlogObj.body"
+              type="textarea"
+              :autosize="{ minRows: 6, maxRows: 15 }"
+            />
           </el-form-item>
           <el-form-item label="标签">
-            <el-input v-model.trim="tag" />
+            <el-input
+              @keydown.esc="tag = ''"
+              @keydown.enter="addTag"
+              v-model.trim="tag"
+            />
             <div>
               <el-button @click="addTag" type="success" round
                 >添加标签</el-button
@@ -95,7 +103,7 @@ onMounted(() => {
   let D = date.getDate();
   M = M < 10 ? "0" + M : M;
   D = D < 10 ? "0" + D : D;
-  atBlogObj.value.date = `${Y}-${M}-${D}`;
+  atBlogObj.value.date = `${Y}.${M}.${D}`;
 });
 const rules = ref({
   title: [{ required: true, message: "标题不能为空！", trigger: "change" }],

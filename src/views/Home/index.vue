@@ -1,6 +1,13 @@
 <template>
   <div class="boxInfo" :class="{ valueFlex: flexBol }">
-    <div class="counterLeft" v-if="routeName" :class="{ valueFlex: flexBol }">
+    <div
+      class="counterLeft"
+      v-if="routeName"
+      :class="{ valueFlex: flexBol }"
+      :style="{
+        boxShadow: `var(--el-box-shadow-light)`,
+      }"
+    >
       <div class="touxiang"></div>
       <h2>OneV's<span v-if="!flexBol">Den</span></h2>
       <h2 v-if="flexBol">Den</h2>
@@ -60,7 +67,7 @@ watch(
   .counterLeft {
     background-image: url("../../assets/images/bkg2.png");
     background-size: cover;
-    width: 100%;
+    min-width: 320px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -1,13 +1,18 @@
 <template>
   <div class="link-box">
-    <RouterLink
-      :to="`/home/tags/${hot}`"
-      class="linkItem"
-      v-for="hot in hotArray"
-      :key="hot"
-    >
-      #{{ hot }}
-    </RouterLink>
+    <div class="link-item">
+      <RouterLink
+        :to="`/home/tags/${hot}`"
+        class="linkItem"
+        v-for="hot in hotArray"
+        :key="hot"
+        :style="{
+          boxShadow: `var(--el-box-shadow)`,
+        }"
+      >
+        #{{ hot }}
+      </RouterLink>
+    </div>
     <BlogBox
       v-for="item in hotTagBlorArray"
       :key="item.id"
@@ -44,6 +49,17 @@ const hotTagBlorArray = computed(() => {
 .link-box {
   width: 95%;
   margin: 0 auto;
-  padding-top: 5px;
+  padding-top: 20px;
+  .link-item {
+    display: flex;
+    flex-wrap: wrap;
+    .linkItem {
+      border: 1px solid #dedfe0;
+      border-radius: 15px;
+      padding: 0 5px;
+      margin-right: 10px;
+      margin-bottom: 5px;
+    }
+  }
 }
 </style>

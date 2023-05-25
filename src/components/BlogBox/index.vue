@@ -2,14 +2,18 @@
   <div class="blog-box">
     <h1 @click="$router.push('/home/blog/' + id)">{{ title }}</h1>
     <p>{{ body }}</p>
-    <div>
-      <!-- <span v-for="item in tags" :key="item">{{ item }}</span> -->
-      <el-tag
-        v-for="(item, index) in tags"
-        :key="item"
-        :type="colorArr[index]"
-        >{{ item }}</el-tag
-      >
+    <div class="flexBox">
+      <div class="flexLeft">
+        <el-tag
+          v-for="(item, index) in tags"
+          :key="item"
+          :type="colorArr[index]"
+          >{{ item }}</el-tag
+        >
+      </div>
+      <div class="flexRight">
+        <em>{{ date }}</em>
+      </div>
     </div>
     <i></i>
   </div>
@@ -22,6 +26,7 @@ defineProps({
   title: String,
   body: String,
   tags: Array,
+  date: String,
 });
 const colorArr = ref(["", "success", "warning", "danger", "info"]);
 </script>
@@ -33,8 +38,20 @@ const colorArr = ref(["", "success", "warning", "danger", "info"]);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  .el-tag {
-    margin-right: 10px;
+  justify-items: flex-end;
+  .flexBox {
+    display: flex;
+    justify-content: space-between;
+    .flexLeft {
+      .el-tag {
+        margin-right: 10px;
+      }
+    }
+    .flexRight {
+      font-size: 12px;
+      color: #a9a9a9;
+      line-height: 24px;
+    }
   }
 
   h1 {
