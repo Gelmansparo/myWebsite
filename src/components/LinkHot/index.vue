@@ -54,7 +54,7 @@ const hotTagBlorArray = computed(() => {
     display: flex;
     flex-wrap: wrap;
     .linkItem {
-      border: 1px solid #dedfe0;
+      border: 3px solid #dedfe0;
       border-radius: 15px;
       padding: 0 5px;
       margin-right: 10px;
