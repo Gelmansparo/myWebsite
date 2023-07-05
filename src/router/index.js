@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
 import Home from '../views/Home/index.vue'
 import BlogList from '../views/BlogList/index.vue'
@@ -9,9 +9,8 @@ import TagSearch from '../views/TagSearch/index.vue'
 
 
 const routes = [
-  { path: '/', redirect: '/home' },
   {
-    path: '/home',
+    path: '/',
     component: Home,
     name: 'Home',
     children: [
@@ -25,7 +24,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
 })
 

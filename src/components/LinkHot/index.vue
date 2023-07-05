@@ -2,7 +2,7 @@
   <div class="link-box">
     <div class="link-item">
       <RouterLink
-        :to="`/home/tags/${hot}`"
+        :to="`/tags/${hot}`"
         class="linkItem"
         v-for="hot in hotArray"
         :key="hot"
