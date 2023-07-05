@@ -22,8 +22,6 @@ const routes = [
   },
   { path: '/create', component: Create },
   { path: '/changeblog/:id', component: ChangeBlog },
-
-
 ]
 
 const router = createRouter({
