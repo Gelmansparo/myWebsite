@@ -9,7 +9,7 @@ import TagSearch from '../views/TagSearch/index.vue'
 
 
 const routes = [
-  { path: '/', redirect: '/home' },
+  { path: '', redirect: '/home' },
   {
     path: '/home',
     component: Home,
