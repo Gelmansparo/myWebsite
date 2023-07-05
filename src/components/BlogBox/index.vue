@@ -1,6 +1,6 @@
 <template>
   <div class="blog-box">
-    <h1 @click="$router.push('/home/blog/' + id)">{{ title }}</h1>
+    <h1 @click="$router.push('/blog/' + id)">{{ title }}</h1>
     <p>{{ body }}</p>
     <div class="flexBox">
       <div class="flexLeft">
