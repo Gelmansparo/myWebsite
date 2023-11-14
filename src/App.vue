@@ -1,5 +1,6 @@
 <script setup>
 import TopNav from "./views/Layout/TopNav.vue";
+import { defineProps } from "vue";
 </script>
 
 <template>
